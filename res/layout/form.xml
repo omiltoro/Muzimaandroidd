@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+ 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10dip" >
+        <!--  View Title Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:text="TBFORM"
+            android:textSize="25dip"
+            android:textStyle="bold" />
+                <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Patient Name" />
+        <!--  Email TextField -->
+        <EditText
+            android:id="@+id/personuuid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <!--  Password TextField -->
+        
+         <!--  Password Label -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="Provider" />
+        
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:entries="@array/Provider" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="Location" />
+       
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+           android:entries="@array/Locationid"/>
+        <!--  Password TextField -->
+         
+         <!--  Password Label -->
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:text="SPUTUM FOR ACID FAST BACILLI" />
+        <!--  Password TextField -->
+        <!--  Error message -->
+ 
+        <!--  Login Button -->
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+              android:entries="@array/SPUTUMACIDBACILLI" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appearance Of Specimen"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Spinner
+            android:id="@+id/spinner4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/Appearance" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:text="Refresh" />
+       
+        <Button
+            android:id="@+id/bn_post"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:onClick="sendFeedback"  
+                            android:text="Submit" />
+ 
+        <!--  Link to Login Screen -->
+
+        <Button
+            android:id="@+id/btnLinkToLoginScreen"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@null"
+            android:text="Go to Muzima"
+            android:textColor="#21dbd4"
+            android:textStyle="bold" />
+    </LinearLayout>
+ 
+</ScrollView>

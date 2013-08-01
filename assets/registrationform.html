@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Patient Registration Form-Muzima</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+  </head>
+  <body>
+    <h1>Muzima Patient Registration Form </h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+	
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+          datasource: {
+            type: 'string',
+            title: 'Datasource',
+	        default:'954b9e59-eba0-4679-afbb-2878580c054d',
+            required: true
+          },
+          discriminator: {
+            type: 'string',
+            title: 'Discriminator',
+			default:'registration'
+          },
+		  payload:{
+		  type:'object',
+		  title:'Patient Demographics',
+		 "properties": {
+                patient_identifier: {
+                    type: 'string',
+                    title: 'Patient Identifier',
+                    default:9999-4
+                },
+                patient_identifier_type: {
+                    type: "string",
+                    title: "Patient Identifier Type",
+					default:'58a46e2e-1359-11df-a1f1-0026b9348838'
+					
+                },
+                patient_identifier_location: {
+                    type: "string",
+                    title: "Patient Identifier Location",
+					default:"c0937b97-1691-11df-97a5-7038c432aabf"
+                },
+                patient_uuid: {
+                    "type": "string",
+                    "title": "Patient Uuid",
+					default:"6e698d66-9f59-4a3b-b3d7-91efb7b297d3"
+                },
+                patient_birthdate: {
+                    "type": "string",
+                    "title": "Birth date",
+					default:"1984-04-16 06:15:00"
+                },
+               patient_birthdate_estimated: {
+                    "type": "boolean",
+                    "title": "Birth Esitimated"
+                    
+                },
+                patient_given_name: {
+                    "type": "string",
+                    "title": "Given Name",
+					default:"Example"
+                },
+				patient_middle_name :{
+				title:'Middle Name',
+				type:'string',
+				default:'Of'
+				
+				},
+				patient_family_name :{
+				title:'Family Name',
+				type:'string',
+				default:'Patient'
+				
+				},
+				patient_gender :{
+				title:'Gender',
+				type:'string',
+				 "enum": [ "M", "F", "NA" ]
+				
+				},
+				person_address_address1 :{
+				title:'Address1',
+				type:'string',
+				 default:"Address1"
+				
+				},
+				person_address_address2 :{
+				title:'Address2',
+				type:'string',
+				 default:"Address2"
+				
+				},
+            },}},
+		
+ 
+		
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>check Form fields?? Openmrs</p>');
+          }
+          else {
+		  if (console && console.log) {
+            console.log('Values extracted from submitted form', values);
+        }
+
+		  
+            
+          }
+		  
+		   alert('Form submitted. Values object:\n' + JSON.stringify(values, null, 2));
+		   jsonObj = JSON.stringify(values, null, 2); 
+		   android.TestMethod(jsonObj); 
+		
+		
+        },
+		onSubmitValid: function (values) {
+   
+    console.log(values);
+  },
+		
+		
+      });
+    </script>
+	 <script type="text/javascript">
+	 
+	 function onSubmit(){  
+      
+     var jsonObj = JSON.stringify(values, null, 2);  
+     
+     android.TestMethod(jsonObj);
+    }
+	
+				</script>
+				 
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<meta charset="utf-8" />
+    <title>Muzima Patient Form</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	
+</head> 
+<body>
+    <h1>Muzima Patient Form </h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+    <script type="text/javascript">
+      $('form').jsonForm({
+        schema: {
+          datasource: {
+            type: 'string',
+            title: 'Datasource',
+	        default:'954b9e59-eba0-4679-afbb-2878580c054d',
+            required: true
+          },
+          discriminator: {
+            type: 'string',
+            title: 'Discriminator',
+			default:'encounter'
+          },
+		  payload:{
+		  type:'object',
+		  title:'Payload',
+		  properties:{
+		 person_uuid:{
+				title:'Persounuuid',
+				type:'string',
+				default:'269857b6-f0b9-4c93-af4a-f18293679e89'
+		  
+		  },
+		  obs: {
+						"type": "array",
+						title:'Observation',
+						
+						"items": [
+                {
+                    "type": "object",
+                    "properties": {
+                        name: {
+                            "type": "string",
+                            "title": "Question",
+                            "default": "Appearance Of Specimen"
+                        },
+                       
+                        value: {
+                            "type": "string",
+                            "title": "Value",
+							default:'1364AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+                        },
+                        type: {
+                            "type": "string",
+                            "title": "Type",
+                            "default": "coded"
+                        },
+                        datetime: {
+                            "type": "string",
+                            "title": "Observation Date",
+							default:'2012-12-19 08:05:09'
+                        }
+                    }
+                },
+                {
+                    type: "object",
+                    "properties": {
+                        name: {
+                            "type": "string",
+                            "title": "Question",
+                            "default": "Sputum Fast Acid Bascilli"
+                        },
+                        code: {
+                            "type": "integer",
+                            "title": "Coded Question",
+                            "default": 1115
+                        },
+                        value: {
+                            "type": "string",
+                            "title": "Value"
+							
+                        },
+                        type: {
+                            "type": "string",
+                            "title": "Type",
+                            "default": "coded"
+                        },
+                        datetime: {
+                            "type": "string",
+                            "title": "Observation Date",
+							default:'2012-12-19 08:05:09'
+                        }
+                    }
+                }
+            ]
+        },
+		encounter: {
+            type: 'object',
+            title: 'Encounter',
+            properties: {
+                
+				form_uuid:{
+				type: 'string',
+				title: 'Formuuid',
+				default:'fe9fc58f-d196-46cb-956d-f46445f558d9'
+				},
+				
+				datetime: {
+                    "type": "string",
+                    "title": "Encounter Date",
+                    "maxLength": 20,
+					default:'2012-12-19 08:05:09'
+                },
+                "location_uuid": {
+                    "type": "string",
+                    "title": "Encounter Location",
+					default:'8d5b2be0-c2cc-11de-8d13-0010c6dffd0f'
+                },
+                "provider_uuid": {
+                    "type": "string",
+                    "title": "Encounter Provider",
+					default:'842f4bae-1692-11df-97a5-7038c432aabf'
+					
+                },
+				encounter_type:{
+				type:'string',
+				title:'Encountertype',
+				enum:['LabVisit','Dr','Other']
+				}
+            }
+        },
+		
+
+        }}},
+		
+ 
+		
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>check Form fields?? Openmrs</p>');
+          }
+          else {
+            
+          }
+		   alert('Form submitted. Values object:\n' + JSON.stringify(values, null, 2));
+        },
+		
+		
+      });
+    </script>
+    <li><a href="navbar.html"rel="external">Back</a></li>
+  </body>
+</html>
