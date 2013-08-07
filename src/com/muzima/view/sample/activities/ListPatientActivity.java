@@ -188,9 +188,9 @@ public class ListPatientActivity extends ListActivity {
             	 Intent ip = new Intent(getApplicationContext(), PreferencesActivity.class);
                  startActivity(ip);
                
-             case R.id.menu_search:
+             /*case R.id.menu_search:
             	 Intent is = new Intent(getApplicationContext(), MainActivity.class);
-                 startActivity(is);
+                 startActivity(is);*/
              	//Toast.makeText(ListPatientActivity.this, "Search is Selected", Toast.LENGTH_SHORT).show();
                  return true;
             /* case R.id.menu_share:

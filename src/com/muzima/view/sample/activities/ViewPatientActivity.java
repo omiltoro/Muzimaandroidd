@@ -206,6 +206,7 @@ public class ViewPatientActivity extends ListActivity {
             
              case R.id.menu_share:
             	 Intent pt = new Intent(getApplicationContext(), PatientFormActivity.class);
+            	pt.putExtra(StringConstants.KEY_PATIENT_ID, patient.getUuid());
                  startActivity(pt);
              	//Toast.makeText(ListPatientActivity.this, "Share is Selected", Toast.LENGTH_SHORT).show();
                  return true;

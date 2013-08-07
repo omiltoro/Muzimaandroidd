@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <title>Muzima Patient Form</title>
     <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+    <script>
+function load()
+{
+alert("Page is loaded");
+}
+</script>
+
   </head>
-  <body>
+  <body onload="load()">
     <h1>Muzima Patient Form </h1>
     <form></form>
     <div id="res" class="alert"></div>
@@ -14,6 +21,11 @@
     <script type="text/javascript" src="deps/opt/jsv.js"></script>
     <script type="text/javascript" src="lib/jsonform.js"></script>
     <script type="text/javascript">
+    var uuidGlobal;
+	function setPersonUUID(patientUuid){
+		alert("Getting uuid: " + patientUuid);
+		uuidGlobal=patientUuid;
+    }
       $('form').jsonForm({
         schema: {
           datasource: {
@@ -31,10 +43,12 @@
 		  type:'object',
 		  title:'Payload',
 		  properties:{
-		 person_uuid:{
+		 personuuid:{
 				title:'Persounuuid',
 				type:'string',
-				default:'269857b6-f0b9-4c93-af4a-f18293679e89'
+				default:uuidGlobal
+				
+				
 		  
 		  },
 		  obs: {
@@ -140,6 +154,7 @@
 		
 
         }}},
+        
 		
  
 		
@@ -177,6 +192,10 @@
      android.TestMethod(jsonObj); }
 	
 				</script>
+				   
+      
+     
+				
     <li><a href="navbar.html"rel="external">Back</a></li>
   </body>
 </html>

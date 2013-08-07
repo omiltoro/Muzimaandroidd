@@ -8,6 +8,7 @@ import java.net.URL;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.apache.commons.logging.Log;
@@ -51,46 +52,9 @@ public class MainActivity extends Activity {
  
  private Button btn;
 
-public void TestMethod(String formData) {  
- System.out.println("TestMethod FormData " + formData);  
- try {  
-   JSONObject jsonData = new JSONObject(formData);  
-   formsubmissionjson = jsonData.toString();
-   
- } catch (JSONException e) {  
-   e.printStackTrace();  
- }  
- wv.loadUrl("javascript:onSubmit('" + formData + "');");  
- Toast.makeText(getApplicationContext(), formData, 50000).show();  
-// System.out.println("TestMethod FormData " + formsubmissionjson);  
- /*Intent ip = new Intent(getApplicationContext(),MuzimaMainActivity.class);
- startActivity(ip);
- */
-}  
-
-/*@Override
- public void onCreate(Bundle savedInstanceState) {
-  super.onCreate(savedInstanceState);
-  this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    
-  setContentView(R.layout.activity_main);
-  
-  //load webview from activity_main.xml to activity
-  WebView webView = (WebView) findViewById(R.id.webView1);
-  webView.getSettings().setJavaScriptEnabled(true);
-  webView.getSettings().setBuiltInZoomControls(false);
-  WebView.addJavascriptInterface(this, "android");
-  
-  //save the html files in assets folder in project. load html file.
-  webView.loadUrl("file:///android_asset/registrationform.html");
-  if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
-      Log.d(TAG, "No SDCARD");
-} else {
-webView.loadUrl("file://"+Environment.getExternalStorageDirectory()+"/simpleform/SimpleForm.html");
-}
 
 
- }*/
+
 @Override  
 public void onCreate(Bundle savedInstanceState) {  
   super.onCreate(savedInstanceState);  
@@ -112,20 +76,80 @@ public void onCreate(Bundle savedInstanceState) {
   btn.setOnClickListener(new OnClickListener() {
 
      
-
-	@Override
-
+	  
 	public void onClick(View arg0) {
 		int position = 0;
 		// TODO Auto-generated method stub
+		JSONObject formObject = new JSONObject();
 		
-		new MyAsyncTask().execute();	
+		
+        try {
+			formObject.put("dataSource", "954b9e59-eba0-4679-afbb-2878580c054d");
+			 formObject.put("discriminator", "encounter");
+		        
+		        JSONObject payload = new JSONObject();
+		        
+		        
+				JSONObject encounter= new JSONObject();
+				encounter.put("form.uuid","fe9fc58f-d196-46cb-956d-f46445f558d9");
+				encounter.put("encounterType.uuid","bdb58960-4d91-4ca7-a27a-8dabde40ec12");
+				encounter.put("provider.uuid","provider_uuid");
+				encounter.put("location.uuid","location_uuid");
+				encounter.put("datetime","encounterdatetime");
+				
+				System.out.println("Encounter Object: **************"+ encounter.toString());
+				
+				
+				JSONObject person= new JSONObject();
+				person.put("person.uuid","" );//replace value with this.getString(R.Id)
+
+				JSONArray obs=new JSONArray();
+				JSONObject o = new JSONObject();
+				o.put("uuid", "obs_uuid");//obs uuid for SPUTUM FOR ACID FAST BACILLI
+				o.put("type","type");//coded
+				o.put("value","value");
+				obs.put(o);
+				
+				payload.put("person",person); // Device type
+				payload.put("encounter",encounter);
+				payload.put("obs",obs);
+				
+				
+				
+		       
+		        formObject.put("payload", payload);
+		      
+		        formsubmissionjson = formObject.toString();
+		        
+		        
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+        new MyAsyncTask().execute();	
 		
 	}
   });
 
   
 }  
+/*public void TestMethod(String formData) {  
+	  System.out.println("TestMethod FormData " + formData);  
+	  try {  
+	    JSONObject jsonData = new JSONObject(formData);  
+	    formsubmissionjson = jsonData.toString();
+	    
+	  } catch (JSONException e) {  
+	    e.printStackTrace();  
+	  }  
+	  wv.loadUrl("javascript:onSubmit('" + formData + "');");  
+	  Toast.makeText(getApplicationContext(), formData, 50000).show();  
+	 // System.out.println("TestMethod FormData " + formsubmissionjson);  
+	  Intent ip = new Intent(getApplicationContext(),MuzimaMainActivity.class);
+	  startActivity(ip);
+	  */
+	  
 
 private class MyAsyncTask extends AsyncTask<String, Integer, Double>{
 	 
@@ -144,34 +168,7 @@ return null;
 }
 
 
-public void postingQueueData() throws Exception   {
-    URL url = new URL("http://192.168.1.3:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
-	      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-    //String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
-    String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
-    connection.setRequestProperty("Authorization", encodedAuthorization);
-    connection.setRequestProperty("Content-Type", "application/json");
-    connection.setRequestMethod(METHOD_POST);
-    connection.setDoOutput(true);
-    
-    
 
-    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
-    writer.write(formsubmissionjson);
-    writer.flush();
-
-    InputStreamReader reader = new InputStreamReader(connection.getInputStream());
-    int responseCode = reader.read();
-    if (responseCode == HttpServletResponse.SC_OK
-            || responseCode == HttpServletResponse.SC_CREATED) {
-        log.info("Queue data created!");
-    }
-
-    reader.close();
-    writer.close();
-   
-
-}
  
 protected void onPostExecute(Double result){
 	Intent ip = new Intent(getApplicationContext(), ListPatientActivity.class);
@@ -186,13 +183,7 @@ protected void onProgressUpdate(Integer... progress){
 
  
 }
-private class MyWebViewClient extends WebChromeClient { 
-    @Override
-    public void onProgressChanged(WebView view, int newProgress) {          
-        MainActivity.this.setValue(newProgress);
-        super.onProgressChanged(view, newProgress);
-    }
-}
+
 
  @Override
  public boolean onCreateOptionsMenu(Menu menu) {
@@ -204,11 +195,8 @@ private class MyWebViewClient extends WebChromeClient {
   return true;
  }
  
- public void setValue(int progress) {
-     this.progress.setProgress(progress);        
- }
- 
-/* public void postingQueueData() throws Exception   {
+  
+ public void postingQueueData() throws Exception   {
 	    URL url = new URL("http://192.168.1.3:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
 		  //URL url = new URL(getString(R.string.default_server)+"/ws/rest/v1/muzima/queueData");
 	    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -219,7 +207,8 @@ private class MyWebViewClient extends WebChromeClient {
 	    connection.setRequestProperty("Authorization", encodedAuthorization);
 	    connection.setRequestMethod(METHOD_POST);
 	    connection.setRequestProperty("Content-Type", "application/json");
-	    connection.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
+	    connection.setRequestProperty("Accept-Charset","UTF-8;q=0.8,*;q=0.8");
+        connection.setRequestProperty("Accept-Encoding","gzip, deflate");
 
 	    connection.setDoOutput(true);
 	    
@@ -241,6 +230,6 @@ private class MyWebViewClient extends WebChromeClient {
 
 	    reader.close();
 	    writer.close();
-	}*/
+	
  
-}
+}}
