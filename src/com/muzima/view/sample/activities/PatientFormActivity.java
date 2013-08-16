@@ -11,6 +11,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
 
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -84,16 +85,15 @@ public class PatientFormActivity extends Activity {
 	  wv.addJavascriptInterface(this, "android");
 	  wv.setWebChromeClient(new WebChromeClient());
 	  // set the html view to load sample.html
-	  wv.loadUrl("file:///android_asset/patientform.html"); 
+	  wv.loadUrl("file:///android_asset/patientformtb.html"); 
+	 
 	  wv.setWebViewClient(new WebViewClient() {
 			@Override
 			public void onPageFinished(WebView view, String url) {
 				wv.loadUrl("javascript:setPersonUUID(\"" + patientUuid + "\")");
 			}
 		});
-	  wv.loadUrl("javascript:setPersonUUID('"+patientUuid+"')");
-	  System.out.println("The patient uuid is-----------" + patientUuid);  
-	  
+	
 	 
 	}  
 	

@@ -25,6 +25,10 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
          */
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
@@ -65,74 +69,75 @@ public final class R {
         public static final int yellow=0x7f020020;
     }
     public static final class id {
-        public static final int birthdate_text=0x7f0a0023;
-        public static final int bn_post=0x7f0a0012;
-        public static final int body=0x7f0a0026;
-        public static final int btnLinkToLoginScreen=0x7f0a0013;
-        public static final int button1=0x7f0a0005;
-        public static final int chart=0x7f0a0020;
-        public static final int code=0x7f0a002e;
-        public static final int download_patients=0x7f0a0016;
-        public static final int encounterdate_text=0x7f0a0007;
-        public static final int fieldname_text=0x7f0a0021;
-        public static final int gender_image=0x7f0a0025;
-        public static final int goButton=0x7f0a0002;
-        public static final int identifier_text=0x7f0a0022;
-        public static final int info=0x7f0a0029;
-        public static final int menu_bookmark=0x7f0a0019;
-        public static final int menu_delete=0x7f0a001d;
-        public static final int menu_preferences=0x7f0a001e;
-        public static final int menu_save=0x7f0a001a;
-        public static final int menu_search=0x7f0a001b;
-        public static final int menu_share=0x7f0a001c;
-        public static final int message=0x7f0a0027;
-        public static final int name_text=0x7f0a0024;
-        public static final int password=0x7f0a002d;
-        public static final int patient_info=0x7f0a0028;
-        public static final int patientholder=0x7f0a0018;
-        public static final int personuuid=0x7f0a0008;
-        public static final int post_url=0x7f0a002b;
-        public static final int progressBar=0x7f0a0003;
-        public static final int progress_bar=0x7f0a0017;
-        public static final int search_text=0x7f0a0015;
-        public static final int searchholder=0x7f0a0014;
-        public static final int server_url=0x7f0a002a;
-        public static final int spinner1=0x7f0a000f;
-        public static final int spinner2=0x7f0a0009;
-        public static final int spinner3=0x7f0a000a;
-        public static final int spinner4=0x7f0a0011;
-        public static final int tableRow1=0x7f0a000b;
-        public static final int tableRow2=0x7f0a000c;
-        public static final int tableRow3=0x7f0a000d;
-        public static final int tableRow4=0x7f0a000e;
-        public static final int textView1=0x7f0a0010;
-        public static final int title_text=0x7f0a001f;
-        public static final int urlContainer=0x7f0a0000;
-        public static final int urlField=0x7f0a0001;
-        public static final int username=0x7f0a002c;
-        public static final int value_text=0x7f0a0006;
-        public static final int webView1=0x7f0a0004;
+        public static final int action_settings=0x7f0b0029;
+        public static final int birthdate_text=0x7f0b001d;
+        public static final int bn_post=0x7f0b0010;
+        public static final int body=0x7f0b0020;
+        public static final int btnLinkToLoginScreen=0x7f0b0011;
+        public static final int button1=0x7f0b0004;
+        public static final int chart=0x7f0b001a;
+        public static final int code=0x7f0b0028;
+        public static final int download_patients=0x7f0b0014;
+        public static final int encounterdate_text=0x7f0b0006;
+        public static final int fieldname_text=0x7f0b001b;
+        public static final int gender_image=0x7f0b001f;
+        public static final int identifier_text=0x7f0b001c;
+        public static final int info=0x7f0b0023;
+        public static final int menu_search=0x7f0b0017;
+        public static final int menu_share=0x7f0b0018;
+        public static final int message=0x7f0b0021;
+        public static final int name_text=0x7f0b001e;
+        public static final int password=0x7f0b0027;
+        public static final int patient_info=0x7f0b0022;
+        public static final int patientholder=0x7f0b0016;
+        public static final int personuuid=0x7f0b0007;
+        public static final int post_url=0x7f0b0025;
+        public static final int progressBar=0x7f0b0001;
+        public static final int progress_bar=0x7f0b0015;
+        public static final int search_text=0x7f0b0013;
+        public static final int searchholder=0x7f0b0012;
+        public static final int server_url=0x7f0b0024;
+        public static final int spinner1=0x7f0b000e;
+        public static final int spinner2=0x7f0b0008;
+        public static final int spinner3=0x7f0b0009;
+        public static final int spinner4=0x7f0b000f;
+        public static final int tableRow1=0x7f0b000a;
+        public static final int tableRow2=0x7f0b000b;
+        public static final int tableRow3=0x7f0b000c;
+        public static final int tableRow4=0x7f0b000d;
+        public static final int textView1=0x7f0b0003;
+        public static final int title_text=0x7f0b0019;
+        public static final int urlContainer=0x7f0b0000;
+        public static final int username=0x7f0b0026;
+        public static final int value_text=0x7f0b0005;
+        public static final int webView1=0x7f0b0002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int button=0x7f030001;
-        public static final int encounter_list_item=0x7f030002;
-        public static final int form=0x7f030003;
-        public static final int list_patients=0x7f030004;
-        public static final int main_tab=0x7f030005;
-        public static final int menu=0x7f030006;
-        public static final int observation_chart=0x7f030007;
-        public static final int observation_list_item=0x7f030008;
-        public static final int observation_timeline=0x7f030009;
-        public static final int patient_list_item=0x7f03000a;
-        public static final int progress_dialog=0x7f03000b;
-        public static final int toast_view=0x7f03000c;
-        public static final int view_patient=0x7f03000d;
+        public static final int activity_sync_form=0x7f030001;
+        public static final int activity_sync_form_data=0x7f030002;
+        public static final int button=0x7f030003;
+        public static final int encounter_list_item=0x7f030004;
+        public static final int form=0x7f030005;
+        public static final int list_patients=0x7f030006;
+        public static final int main_tab=0x7f030007;
+        public static final int menu=0x7f030008;
+        public static final int observation_chart=0x7f030009;
+        public static final int observation_list_item=0x7f03000a;
+        public static final int observation_timeline=0x7f03000b;
+        public static final int patient_list_item=0x7f03000c;
+        public static final int progress_dialog=0x7f03000d;
+        public static final int toast_view=0x7f03000e;
+        public static final int view_patient=0x7f03000f;
+    }
+    public static final class menu {
+        public static final int sync_form_data=0x7f0a0000;
     }
     public static final class raw {
         public static final int configuration=0x7f050000;
     }
     public static final class string {
+        public static final int action_settings=0x7f08002c;
         public static final int app_name=0x7f080000;
         public static final int app_version=0x7f080001;
         public static final int auth=0x7f080002;
@@ -149,6 +154,7 @@ public final class R {
         public static final int error=0x7f08000e;
         public static final int error_login_code=0x7f08000f;
         public static final int find_patient=0x7f080010;
+        public static final int hello_world=0x7f08002d;
         public static final int invalid_code=0x7f080011;
         public static final int invalid_name=0x7f080012;
         public static final int list_patients=0x7f080013;
@@ -169,6 +175,7 @@ public final class R {
         public static final int server_url=0x7f080020;
         public static final int show_patient=0x7f080023;
         public static final int storage_error=0x7f08002a;
+        public static final int title_activity_sync_form_data=0x7f08002b;
         public static final int toggle_selected=0x7f080024;
         public static final int upload_forms=0x7f080025;
         public static final int urlField=0x7f08000c;

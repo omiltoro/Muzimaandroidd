@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<title>Patient Forms</title>
+
+
+	
+	
+<script type="text/javascript">
+function foo(){  
+
+     var dataObj = new Object();
+     dataObj.datasource = document.getElementById("datasource").value;
+     dataObj.discriminator = document.getElementById("discriminator").value;
+
+     var payload = new Object();
+
+     var person = new Object();
+     person["person.uuid"] = document.getElementById("person.uuid").value;;
+     payload.person = person;
+
+     var encounter = new Object();
+     encounter["provider.uuid"] = document.getElementById("provider.uuid").value;
+     encounter["location.uuid"] = document.getElementById("location.uuid").value;
+     encounter["form.uuid"] = document.getElementById("form.uuid").value;
+     encounter["encounterType.uuid"]="8d5b2be0-c2cc-11de-8d13-0010c6dffd0f";
+     encounter["datetime"] = new Date();
+     payload.encounter = encounter;
+
+     var obs = new Array();
+
+     var obsElement = new Object();
+     obsElement.uuid = "document";
+     obsElement.type = "document";
+     obsElement.value = "documen";
+     obs.push(obsElement);
+
+     payload.obs = obs;
+
+     dataObj.payload = payload;
+			 
+     var jsonObj = JSON.stringify(dataObj);  
+	 alert('Form submitted. Values object:\n' + JSON.stringify(dataObj, null, 2));
+     /* NOTE: Calling Activity Method using the Activity defined 
+        instance "android" in JavaScript */
+     //android.TestMethod(jsonObj); 
+     }  
+   </script>  
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Patient Forms</a></h1>
+		<form id="form_685383" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Patient Forms</h2>
+			<p>Patient Form form mUzima Project</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="datasource">Datasource* </label>
+		<div>
+			<input id="datasource" name="datasource" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_1"><small>Datasource uuid</small></p> 
+		
+		</li>		<li id="li_2" >
+		<label class="description" for="discriminator">Discriminator* </label>
+		<div>
+			<input id="discriminator" name="discriminator" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_2"><small>Discriminator</small></p> 
+		
+		
+		</li>		<li id="li_3" >
+		<label class="description" for="person.uuid">Personuuid* </label>
+		<div>
+		<script type="text/javascript">
+ var uuidGlobal; 
+ function setPersonUUID(patientUuid){
+	 alert("Getting uuid: " + patientUuid);
+    uuidGlobal = patientUuid;
+	document.getElementById("person.uuid").value=uuidGlobal;
+
+  }
+
+</script>
+			<input id="person.uuid" name="person.uuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_3"><small>Person unique uuid</small></p> 
+		
+		
+		</li>		<li class="section_break">
+			<h3>Encounter</h3>
+			<p>Encounter details</p>
+		</li>		<li id="li_5" >
+		<label class="description" for="form.uuid">Formuuid </label>
+		<div>
+			<input id="form.uuid" name="form.uuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_5"><small>uuid for the form</small></p> 
+		</li>		<li id="li_6" >
+		<label class="description" for="datetime">Encounter Date Time </label>
+		<div>
+			<input id="datetime" name="datetime" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_6"><small>encounter date Time</small></p> 
+		</li>		<li id="li_8" >
+		<label class="description" for="location.uuid">LocationID </label>
+		<div>
+		<select class="element select medium" id="location.uuid" name="location.uuid"> 
+			<option value="" selected="selected"></option>
+<option value="1" >Reach</option>
+<option value="2" >Ampath</option>
+<option value="3" >Indiana</option>
+
+		</select>
+		</div><p class="guidelines" id="guide_8"><small>Location of health centre</small></p> 
+		</li>		<li id="li_9" >
+		<label class="description" for="provider.uuid">Provider Id </label>
+		<div>
+		<select class="element select medium" id="provider.uuid" name="provider.uuid"> 
+			<option value="" selected="selected"></option>
+<option value="1" >Win</option>
+<option value="2" >Admin</option>
+<option value="3" >Patrick</option>
+<option value="4" >Judy</option>
+
+		</select>
+		</div><p class="guidelines" id="guide_9"><small>The Id for the provider</small></p> 
+		</li>		<li class="section_break">
+			<h3>Obs</h3>
+			<p>Observation Details</p>
+		</li>		<li id="li_10" >
+		<label class="description" for="element_10">Appearance of Specimen </label>
+		<span>
+			<input id="purulent" name="element_10" class="element radio" type="radio" value="1" />
+<label class="choice" for="element_10_1">Purulent</label>
+<input id="scanty" name="element_10" class="element radio" type="radio" value="2" />
+<label class="choice" for="element_10_2">Scanty</label>
+<input id="bloody" name="element_10" class="element radio" type="radio" value="3" />
+<label class="choice" for="element_10_3">Bloody</label>
+<input id="redcolor" name="element_10" class="element radio" type="radio" value="4" />
+<label class="choice" for="element_10_4">Red Color</label>
+<input id="saliva" name="element_10" class="element radio" type="radio" value="5" />
+<label class="choice" for="element_10_5">Saliva</label>
+<input id="mucopurulent" name="element_10" class="element radio" type="radio" value="6" />
+<label class="choice" for="element_10_6">Muco pulurent</label>
+
+		</span><p class="guidelines" id="guide_10"><small>Appearance of Sputum from lab examnination</small></p> 
+		</li>		<li id="li_11" >
+		<label class="description" for="element_11">Sputum For Fast Acid Bascilli </label>
+		<span>
+			<input id="threeplus" name="element_11_1" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_1">Three Plus</label>
+<input id="twoplus" name="element_11_2" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_2">Two Plus</label>
+<input id="oneplus" name="element_11_3" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_3">One Plus</label>
+<input id="negative" name="element_11_4" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_4">Negative</label>
+<input id="positive" name="element_11_5" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_5">Positive</label>
+<input id="scanty" name="element_11_6" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_6">Scanty</label>
+<input id="contaminated" name="element_11_7" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_11_7">Contaminated Specimen</label>
+
+		</span><p class="guidelines" id="guide_11"><small>Sputum for fast acid bascilli test for specimen</small></p> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="685383" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Save" />
+				<button id="postForm"class="button_text" onClick="foo()" type="submit" name="submit"> Submit</button> 
+				
+		</li>
+			</ul>
+		</form>	
+		<div id="footer">
+			Generated by <a href="http://www.mUzima.org">mUzima</a>
+			<p>Author by : Patrick and Judy TB team</p>
+		</div>
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>

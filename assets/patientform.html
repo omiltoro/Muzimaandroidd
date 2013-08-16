@@ -11,6 +11,8 @@ alert("Page is loaded");
 }
 </script>
 
+
+
   </head>
   <body onload="load()">
     <h1>Muzima Patient Form </h1>
@@ -18,21 +20,27 @@ alert("Page is loaded");
     <div id="res" class="alert"></div>
     <script type="text/javascript" src="deps/jquery.min.js"></script>
     <script type="text/javascript" src="deps/underscore.js"></script>
-    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+   
     <script type="text/javascript" src="lib/jsonform.js"></script>
     <script type="text/javascript">
     var uuidGlobal;
-	function setPersonUUID(patientUuid){
-		alert("Getting uuid: " + patientUuid);
-		uuidGlobal=patientUuid;
+
+    function setPersonUUID(patientUuid){
+    	alert("Getting uuid: " + patientUuid);
+    	uuidGlobal=patientUuid;
+    	alert("person uuid: " + uuidGlobal);
+    	console.log("uuid globalis" + uuidGlobal);
+    	
     }
+
+
       $('form').jsonForm({
         schema: {
           datasource: {
             type: 'string',
             title: 'Datasource',
-	        default:'a261d8ce-08e6-4fee-b0a5-e0c3f3a0dca6',
-            required: true
+	        default:'a261d8ce-08e6-4fee-b0a5-e0c3f3a0dca6'
+            
           },
           discriminator: {
             type: 'string',
@@ -45,8 +53,8 @@ alert("Page is loaded");
 		  properties:{
 		 personuuid:{
 				title:'Persounuuid',
-				type:'string',
-				default:uuidGlobal
+				type:'string'
+				
 					
 		  
 		  },
@@ -152,7 +160,32 @@ alert("Page is loaded");
         },
 		
 
-        }}},
+        }}},value: {
+            // datasource: 'a261d8ce-08e6-4fee-b0a5-e0c3f3a0dca6',
+            // discriminator: 'encounter',
+            payload: {
+              personuuid: uuidGlobal //,
+            //   obs: [
+            //     {
+            //       name  : 'Appearance Of Specimen',
+            //       code  : 1114,
+            //       value : '1364AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+            //       type  :'coded'
+            //     },
+            //     {
+            //       name : 'Sputum Fast Acid Bascilli',
+            //       code : 1115,
+            //       type : 'coded'
+            //     }
+            //   ],
+            //   encounter: {
+            //     form_uuid     : 'fe9fc58f-d196-46cb-956d-f46445f558d9',
+            //     datetime      : '2012-12-19 08:05:09',
+            //     location_uuid : '8d5b2be0-c2cc-11de-8d13-0010c6dffd0f',
+            //     provider_uuid : '842f4bae-1692-11df-97a5-7038c432aabf'
+            //   }
+            }
+          },
         
 		
  

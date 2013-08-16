@@ -208,7 +208,7 @@ public class ViewPatientActivity extends ListActivity {
             	 Intent pt = new Intent(getApplicationContext(), PatientFormActivity.class);
             	pt.putExtra(StringConstants.KEY_PATIENT_ID, patient.getUuid());
                  startActivity(pt);
-             	//Toast.makeText(ListPatientActivity.this, "Share is Selected", Toast.LENGTH_SHORT).show();
+             	Toast.makeText(ViewPatientActivity.this, "Patient Form Selected(TB sputum)", Toast.LENGTH_SHORT).show();
                  return true;
             /* case R.id.menu_delete:
              	Toast.makeText(ViewPatientActivity.this, "Delete is Selected", Toast.LENGTH_SHORT).show();

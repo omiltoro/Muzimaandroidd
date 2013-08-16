@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Muzima</string>
     <string name="app_version">0.1.0</string>
     <string name="auth">App Login</string>
@@ -43,13 +44,13 @@
     <string name="view_patient_detail">View Observation</string>
     <string name="view_observation">View Observation</string>
     <string name="storage_error">SD card not ready.</string>
-     <string-array name="Locationid">
+
+    <string-array name="Locationid">
         <item>Reach</item>
         <item>Ampath</item>
         <item>Busia</item>
-       
     </string-array>
-        <string-array name="SPUTUMACIDBACILLI">
+    <string-array name="SPUTUMACIDBACILLI">
         <item>THREEPLUS</item>
         <item>ONEPLUS</item>
         <item>TWOPLUS</item>
@@ -57,21 +58,22 @@
         <item>POSITIVE</item>
         <item>SCANTY</item>
         <item>CONTAMINATED</item>
-       
     </string-array>
-    
     <string-array name="Appearance">
         <item>Purulent</item>
         <item>Red</item>
         <item>Saliva</item>
         <item>Mucopulurent</item>
-            </string-array>
-            <string-array name="Provider">
+    </string-array>
+    <string-array name="Provider">
         <item>Win</item>
         <item>Patrick</item>
         <item>Admin</item>
         <item>etc</item>
-        
     </string-array>
-    
+
+    <string name="title_activity_sync_form_data">SyncFormDataActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

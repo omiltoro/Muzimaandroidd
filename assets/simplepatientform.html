@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Patient Form</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Patient Form</a></h1>
+		<form id="form_682046" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Patient Form</h2>
+			<p>Simple Patient Form for the Muzima project</p>
+			<p> TB lab Test Form</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Discriminator </label>
+		<div>
+		<script type="text/javascript">
+function foo(){  
+     var datasource = document.getElementById("datasource").value;  
+     var discriminator = document.getElementById("discriminator").value;  
+     var personuuid = document.getElementById("personuuid").value;  
+     var formuuid = document.getElementById("formuuid").value;  
+	 var provideruuid = document.getElementById("provideruuid").value;
+	 var locationuuid = document.getElementById("locationuuid").value;
+	 var value = document.getElementById("value").value;
+	  var type = document.getElementById("type").value;
+	   var uuid = document.getElementById("uuid").value;
+	
+	 
+	 
+	 
+     var dataObj = new Object();  
+     dataObj.datasource= datasource;  
+     dataObj.discriminator = discriminator;  
+	  
+	var payload =new Object();
+	dataObj.payload=("payload", payload); 
+	
+	var person = new Object();
+	    payload.person=("person",person);
+		person.personuuid=personuuid;
+		
+	var encounter = new Object();
+		payload.encounter=("encounter",encounter);
+				encounter.provideruuid= provideruuid;
+				encounter.locationuuid = locationuuid;
+				encounter.formuuid = formuuid;
+	
+
+	 
+	
+	var obs =new Array();
+    
+			payload.obs=("obs",obs);
+			obs[0]=value;
+			obs[1]=uuid;
+			obs[2]=type;
+			
+			
+			
+		
+		
+		
+	    
+
+	 
+     var jsonObj = JSON.stringify(dataObj);  
+	 alert('Form submitted. Values object:\n' + JSON.stringify(dataObj, null, 2));
+     /* NOTE: Calling Activity Method using the Activity defined 
+        instance "android" in JavaScript */
+     //android.TestMethod(jsonObj); 
+     }  
+   </script>  
+</script>
+			<input id="discriminator" name="discriminator" class="element text medium" type="text" maxlength="255" value="encounter"/> 
+		</div> 
+		</li>		<li id="li_2" >
+		<label class="description" for="datasource">Datasource </label>
+		<div>
+			<input id="datasource" name="datasource" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description" for="personuuid">Person uuid </label>
+		<div>
+		<script type="text/javascript">
+ var uuidGlobal; 
+ function setPersonUUID(patientUuid){
+	 alert("Getting uuid: " + patientUuid);
+    uuidGlobal = patientUuid;
+	document.getElementById("personuuid").value=uuidGlobal;
+
+  }
+
+</script>
+			<input id="personuuid" name="personuuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_4" >
+		<label class="description" for="element_4">name </label>
+		<div>
+			<input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_5" >
+		<label class="description" for="uuid">uuid </label>
+		<div>
+			<input id="uuid" name="uuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_6" >
+		<label class="description" for="value">Value </label>
+		<div>
+			<input id="value" name="value" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_7" >
+		<label class="description" for="type">type </label>
+		<div>
+			<input id="type" name="type" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_8" >
+		<label class="description" for="formuuid">formuuid </label>
+		<div>
+			<input id="formuuid" name="formuuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_9" >
+		<label class="description" for="locationuuid">locationuuid </label>
+		<div>
+			<input id="locationuuid" name="locationuuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_10" >
+		<label class="description" for="provideruuid">provideruuid </label>
+		<div>
+			<input id="provideruuid" name="provideruuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_11" >
+		<label class="description" for="element_11">Enocounter Type </label>
+		<div>
+		<select class="element select medium" id="element_11" name="element_11"> 
+			<option value="" selected="selected"></option>
+<option value="1" >Dr</option>
+<option value="2" >Lab Visit</option>
+<option value="3" >Other</option>
+
+		</select>
+		</div> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="682046" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Save" />
+				<button onClick="foo()"> Submit</button> 
+		</li>
+			</ul>
+		</form>	
+		<div id="footer">
+			Generated by <a href="http://www.mUzima.org">mUzima</a>
+			<p>Author by : Patrick and Judy TB team</p>
+		</div>
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>

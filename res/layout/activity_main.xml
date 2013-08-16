@@ -14,18 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/urlField"
-            android:layout_width="134dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.72"
-           android:hint="Enter URL to sync Form" />
-
-        <Button
-            android:id="@+id/goButton"
-            android:layout_width="wrap_content"
-            android:layout_height="65dp"
-            android:text="Sync Form" />
     </LinearLayout>
  
     <ProgressBar

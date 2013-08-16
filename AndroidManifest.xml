@@ -3,15 +3,14 @@
     package="com.muzima.view.sample"
     android:versionCode="1"
     android:versionName="@string/app_version" >
-    
+
     <uses-permission
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:name="android.permission.INTERNET" />
-    <uses-permission 
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-sdk android:minSdkVersion="10" />
-    
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -22,38 +21,41 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light" >
         <activity
+            android:name="com.muzima.view.sample.activities.ListPatientActivity"
             android:label="@string/app_name"
-            android:name=".activities.ListPatientActivity"
             android:windowSoftInputMode="stateAlwaysVisible" >
-            <intent-filter >
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.FormActivity" />
-        
+            android:name="com.muzima.view.sample.activities.FormActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.PreferencesActivity" />
+            android:name="com.muzima.view.sample.activities.PreferencesActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.MainActivity" />
+            android:name="com.muzima.view.sample.activities.MainActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.ViewPatientActivity" />
+            android:name="com.muzima.view.sample.activities.ViewPatientActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.ObservationChartActivity" />
+            android:name="com.muzima.view.sample.activities.ObservationChartActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.ObservationTimelineActivity" />
+            android:name="com.muzima.view.sample.activities.ObservationTimelineActivity"
+            android:label="@string/app_name" />
         <activity
-            android:label="@string/app_name"
-            android:name=".activities.PatientFormActivity" />
+            android:name="com.muzima.view.sample.activities.PatientFormActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.muzima.view.sample.activities.SyncFormDataActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

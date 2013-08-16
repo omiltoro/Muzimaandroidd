@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<title>Registration Form</title>
+
+<script type="text/javascript">
+function foo(){  
+      var dataObj = new Object();
+     dataObj.datasource = document.getElementById("datasource").value;
+     dataObj.discriminator = document.getElementById("discriminator").value;
+
+     var payload = new Object();
+   
+     payload["person.identifier"] = document.getElementById("patient.identifier").value;
+     payload["patient.identifier_type"] = document.getElementById("patient.identifier_type").value;
+     payload["patient.identifier_location"] = document.getElementById("patient.identifier_location").value;
+     payload["patient.uuid"] = document.getElementById("patient.uuid").value;
+     payload["patient.birthdate"]= new Date();
+     payload["patient.birthdate_estimated"] = "F";
+	 payload["patient.given_name"] = document.getElementById("patient.given_name").value;
+	 payload["patient.middle_name"] = document.getElementById("patient.middle_name").value;
+	 payload["patient.family_name"] = document.getElementById("patient.family_name").value;
+	 payload["patient.gender"] = document.getElementById("patient.gender").value;
+	 payload["patient.address_address1"] = document.getElementById("patient.address_address1").value;
+	 payload["patient.address_address2"] = document.getElementById("patient.address_address2").value;
+	   
+     dataObj.payload = payload;
+			 
+	 
+    var jsonObj = JSON.stringify(dataObj);  
+	 alert('Form submitted. Values object:\n' + JSON.stringify(dataObj, null, 2));
+     /* NOTE: Calling Activity Method using the Activity defined 
+        instance "android" in JavaScript */
+     android.TestMethod(jsonObj); 
+     }  
+   
+</script>
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Registration Form</a></h1>
+		<form id="form_685430" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Registration Form</h2>
+			<p>Patient Registration Form For mUzima Project</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="datasource">Datasource </label>
+		<div>
+		
+			<input id="datasource" name="datasource" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_1"><small>Datasource for the registration form</small></p> 
+		</li>		<li id="li_2" >
+		<label class="description" for="discriminator">Discriminator </label>
+		<div>
+			<input id="discriminator" name="discriminator" class="element text medium" type="text" maxlength="255" value="registration"/> 
+		</div><p class="guidelines" id="guide_2"><small>Discriminator default value should be registration</small></p> 
+		</li>		<li class="section_break">
+			<h3>Patient Demographics</h3>
+			<p>Patient details and information</p>
+		</li>		<li id="li_4" >
+		<label class="description" for="patient.identifier">PatientIdentifier </label>
+		<div>
+			<input id="patient.identifier" name="patient.identifier" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_4"><small>PatientIdentifier</small></p> 
+		</li>		<li id="li_5" >
+		<label class="description" for="patient.identifier_type">PatientIdentifiertype </label>
+		<div>
+			<input id="patient.identifier_type" name="patient.identifier_type" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_5"><small>Patient Identifier Type</small></p> 
+		</li>		<li id="li_6" >
+		<label class="description" for="patient.identifier_location">Patient Identifier location </label>
+		<div>
+			<input id="patient.identifier_location" name="patient.identifier_location" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_6"><small>patient identifier location</small></p> 
+		</li>		<li id="li_7" >
+		<label class="description" for="patient.uuid">Patientuuid </label>
+		<div>
+			<input id="patient.uuid" name="patient.uuid" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_7"><small>uuid for the patient to be assigned</small></p> 
+		</li>		<li id="li_8" >
+		<label class="description" for="patient.birthdate">Patient Birthdate </label>
+		<div>
+			<input id="patient.birthdate" name="patient.birthdate" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_8"><small>Birthdate of patient</small></p> 
+		</li>		<li id="li_14" >
+		<label class="description" for="patient.birthdate_estimated">Birthdate estimated </label>
+		<span>
+			<input id="patient.birthdate_estimated" name="patient.birthdate_estimated" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="patient.birthdate_estimated">Estimateted</label>
+
+		</span><p class="guidelines" id="guide_14"><small>Estimated birthdate</small></p> 
+		</li>		<li id="li_9" >
+		<label class="description" for="patient.given_name">Patient Given Name </label>
+		<div>
+			<input id="patient.given_name" name="patient.given_name" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_9"><small>Patient Given name</small></p> 
+		</li>		<li id="li_10" >
+		<label class="description" for="patient.family_name">Patient Family Name </label>
+		<div>
+			<input id="patient.family_name" name="patient.family_name" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_10"><small>Patient Family Name</small></p> 
+		</li>		<li id="li_11" >
+		<label class="description" for="patient.middle_name">Patient Middle Name </label>
+		<div>
+			<input id="patient.middle_name" name="patient.middle_name" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_11"><small>Middle name of patient</small></p> 
+		</li>		<li id="li_15" >
+		<label class="description" for="patient.gender">Gender </label>
+		<div>
+		<select class="element select medium" id="patient.gender" name="patient.gender"> 
+			<option value="" selected="selected"></option>
+<option value="1" >Male</option>
+<option value="2" >Female</option>
+<option value="3" >NA</option>
+
+		</select>
+		</div><p class="guidelines" id="guide_15"><small>gender of patient</small></p> 
+		</li>		<li id="li_12" >
+		<label class="description" for="patient.address_address1">Address1 </label>
+		<div>
+			<input id="patient.address_address1" name="patient.address_address1" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_12"><small>Address of patient P.O.Box 1635-00100</small></p> 
+		</li>		<li id="li_13" >
+		<label class="description" for="patient.address_address2">Address2 </label>
+		<div>
+			<input id="patient.address_address2" name="patient.address_address2" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_13"><small>address of patient eg Nairobi,Busia, Kitale</small></p> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="685430" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Save" />
+				<button id="postForm"class="button_text" onClick="foo()" type="submit" name="submit"> Submit</button> 
+			</ul>
+		</form>	
+		<div id="footer">
+			Generated by <a href="http://www.mUzima.org">mUzima</a>
+			<p>Author by : Patrick and Judy TB team</p>
+		</div>
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Registration Form</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+<script type="text/javascript" src="calendar.js"></script>
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Registration Form</a></h1>
+		<form id="form_683385" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Registration Form</h2>
+			<p>mUzima Patient Registration Form
+</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Datasource </label>
+		
+		<div>
+		<script type="text/javascript">
+ var uuidGlobal; 
+ function setPersonUUID(patientUuid){
+	 alert("Getting uuid: " + patientUuid);
+    uuidGlobal = patientUuid;
+	document.getElementById("element_1").value=uuidGlobal;
+
+  }
+ </script>
+			<input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_1"><small>Datasource of the (*)</small></p> 
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">Discriminator </label>
+		<div>
+			<input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description" for="element_3">Patientidentifier </label>
+		<div>
+			<input id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_4" >
+		<label class="description" for="element_4">PatientIdentifiertype </label>
+		<div>
+			<input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_4"><small>patient identifier type</small></p> 
+		</li>		<li id="li_5" >
+		<label class="description" for="element_5">Patient Identifier Location </label>
+		<div>
+			<input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_5"><small>Patient IDentifier Location</small></p> 
+		</li>		<li id="li_6" >
+		<label class="description" for="element_6">PatientUuid </label>
+		<div>
+			<input id="element_6" name="element_6" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_6"><small>Unique identifier of the patient</small></p> 
+		</li>		<li id="li_7" >
+		<label class="description" for="element_7">PatientBirthdate </label>
+		<span>
+			<input id="element_7_1" name="element_7_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="element_7_1">MM</label>
+		</span>
+		<span>
+			<input id="element_7_2" name="element_7_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<label for="element_7_2">DD</label>
+		</span>
+		<span>
+	 		<input id="element_7_3" name="element_7_3" class="element text" size="4" maxlength="4" value="" type="text">
+			<label for="element_7_3">YYYY</label>
+		</span>
+	
+		<span id="calendar_7">
+			<img id="cal_img_7" class="datepicker" src="calendar.gif" alt="Pick a date.">	
+		</span>
+		<script type="text/javascript">
+			Calendar.setup({
+			inputField	 : "element_7_3",
+			baseField    : "element_7",
+			displayArea  : "calendar_7",
+			button		 : "cal_img_7",
+			ifFormat	 : "%B %e, %Y",
+			onSelect	 : selectDate
+			});
+		</script>
+		<p class="guidelines" id="guide_7"><small>Birthdate of patient</small></p> 
+		</li>		<li id="li_8" >
+		<label class="description" for="element_8">Time </label>
+		<span>
+			<input id="element_8_1" name="element_8_1" class="element text " size="2" type="text" maxlength="2" value=""/> : 
+			<label>HH</label>
+		</span>
+		<span>
+			<input id="element_8_2" name="element_8_2" class="element text " size="2" type="text" maxlength="2" value=""/> : 
+			<label>MM</label>
+		</span>
+		<span>
+			<input id="element_8_3" name="element_8_3" class="element text " size="2" type="text" maxlength="2" value=""/>
+			<label>SS</label>
+		</span>
+		<span>
+			<select class="element select" style="width:4em" id="element_8_4" name="element_8_4">
+				<option value="AM" >AM</option>
+				<option value="PM" >PM</option>
+			</select>
+			<label>AM/PM</label>
+		</span> 
+		</li>		<li id="li_9" >
+		<label class="description" for="element_9">GivenName </label>
+		<div>
+			<input id="element_9" name="element_9" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_9"><small>Given name</small></p> 
+		</li>		<li id="li_10" >
+		<label class="description" for="element_10">MiddleName </label>
+		<div>
+			<input id="element_10" name="element_10" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_10"><small>middle name</small></p> 
+		</li>		<li id="li_11" >
+		<label class="description" for="element_11">FamilyName </label>
+		<div>
+			<input id="element_11" name="element_11" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_11"><small>Family Name</small></p> 
+		</li>		<li id="li_14" >
+		<label class="description" for="element_14">PatientGender </label>
+		<div>
+		<select class="element select medium" id="element_14" name="element_14"> 
+			<option value="" selected="selected"></option>
+<option value="1" >Male</option>
+<option value="2" >Female</option>
+<option value="3" >NA</option>
+
+		</select>
+		</div><p class="guidelines" id="guide_14"><small>Gender of patient</small></p> 
+		</li>		<li id="li_12" >
+		<label class="description" for="element_12">Address1 </label>
+		<div>
+			<input id="element_12" name="element_12" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_12"><small>address 1</small></p> 
+		</li>		<li id="li_13" >
+		<label class="description" for="element_13">Address2 </label>
+		<div>
+			<input id="element_13" name="element_13" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="guide_13"><small>Address2</small></p> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="683385" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+			</ul>
+		</form>	
+		<div id="footer">
+			Generated by <a href="http://www.phpform.org">pForm</a>
+		</div>
+	</div>
+	<img id="bottom" src="bottom.png" alt="">
+	</body>
+</html>
