@@ -127,7 +127,7 @@ public class SyncFormDataActivity extends Activity implements OnClickListener{
 		 
 		protected void onPostExecute(Double result){
 		
-		Toast.makeText(getApplicationContext(), "command sent", Toast.LENGTH_LONG).show();
+		Toast.makeText(getApplicationContext(), "Form Data has been sent to server", Toast.LENGTH_LONG).show();
 		
 		// Start ListPatient activity
         Intent ip = new Intent(getApplicationContext(), ListPatientActivity.class);
