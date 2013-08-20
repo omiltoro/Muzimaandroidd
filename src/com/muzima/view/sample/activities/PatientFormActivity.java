@@ -46,29 +46,7 @@ public class PatientFormActivity extends Activity {
 	 Toast.makeText(getApplicationContext(), formData, 50000).show();  
 	}  
 
-	/*@Override
-	 public void onCreate(Bundle savedInstanceState) {
-	  super.onCreate(savedInstanceState);
-	  this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-	    
-	  setContentView(R.layout.activity_main);
-	  
-	  //load webview from activity_main.xml to activity
-	  WebView webView = (WebView) findViewById(R.id.webView1);
-	  webView.getSettings().setJavaScriptEnabled(true);
-	  webView.getSettings().setBuiltInZoomControls(false);
-	  WebView.addJavascriptInterface(this, "android");
-	  
-	  //save the html files in assets folder in project. load html file.
-	  webView.loadUrl("file:///android_asset/registrationform.html");
-	  if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
-	      Log.d(TAG, "No SDCARD");
-	} else {
-	webView.loadUrl("file://"+Environment.getExternalStorageDirectory()+"/simpleform/SimpleForm.html");
-	}
-
-
-	 }*/
+	
 	@Override  
 	@JavascriptInterface
 	public void onCreate(Bundle savedInstanceState) {  
@@ -96,17 +74,6 @@ public class PatientFormActivity extends Activity {
 	
 	 
 	}  
-	
-	/*@JavascriptInterface
-	  public void getUuid() {
-		String patientUuid = getIntent().getStringExtra(StringConstants.KEY_PATIENT_ID);
-	      patient = getPatient(patientUuid);
-	    wv.loadUrl("javascript:setUuid('" + patientUuid + "');");
-	    System.out.println("The patient uuid is-----------" + patientUuid); 
-	  }*/
-	
-
-	
 	
 	private Context getContext() throws Exception {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getBaseContext());

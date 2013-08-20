@@ -28,6 +28,7 @@ import com.muzima.view.sample.R;
 import com.muzima.view.sample.utilities.StringConstants;
  
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.opengl.Visibility;
 import android.os.AsyncTask;
@@ -46,106 +47,122 @@ import android.widget.Toast;
  
 public class SyncFormDataActivity extends Activity implements OnClickListener{
  
-private EditText value;
-private Button btn;
-private ProgressBar pb;
-private static final String METHOD_POST = "POST";
-private static final String URL = "/ws/rest/v1/muzima/queueData";
+	private EditText value;
+	private Button btn;
+	private ProgressBar pb;
+	private static final String METHOD_POST = "POST";
+	private static final String URL = "/ws/rest/v1/muzima/queueData";
 
 
 
-@Override
-public void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_sync_form_data);
-
-final  String formsubmissionJson = getIntent().getStringExtra("formdata");
-	final String URF = (getString(R.string.default_server) + URL);
-
-
-	System.out.println("url is" +URF);
-
-
-System.out.println("submit 56565 ======= " + formsubmissionJson);  
-
-btn=(Button)findViewById(R.id.button1);
-
-btn.setOnClickListener(this);
-}
- 
-@Override
-public boolean onCreateOptionsMenu(Menu menu) {
-getMenuInflater().inflate(R.layout.menu, menu);
-return true;
-}
- 
-public void onClick(View v) {
-// TODO Auto-generated method stub
-
-new MyAsyncTask().execute();	
-
- 
-}
- 
-private class MyAsyncTask extends AsyncTask<String, Integer, Double>{
- 
-@Override
-protected Double doInBackground(String... params) {
-// TODO Auto-generated method stub
-try {
-	postingQueueData();
-} catch (Exception e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-return null;
-}
- 
-protected void onPostExecute(Double result){
-pb.setVisibility(View.GONE);
-Toast.makeText(getApplicationContext(), "command sent", Toast.LENGTH_LONG).show();
-}
-protected void onProgressUpdate(Integer... progress){
-
-}
-
-
-
-
-
-
-public void postingQueueData() throws Exception   {
-	final String URF = (getString(R.string.default_server) + URL);
-		 final  String formsubmissionJson = getIntent().getStringExtra("formdata");
-   URL url = new URL("http://192.168.1.50:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
-	 //URL url = new URL(URF);
-    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-    //String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
-    String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
-   // Base64.encode("admin:test".getBytes());
-  //  String encoding = Base64.encodeToString(AuthenticationException.getBytes(), Base64.NO_WRAP);
-    connection.setRequestProperty("Authorization", encodedAuthorization);
-    connection.setRequestMethod(METHOD_POST);
-    connection.setRequestProperty("Content-Type", "application/json");
-    connection.setRequestProperty("Accept-Charset","UTF-8;q=0.8,*;q=0.8");
-    connection.setRequestProperty("Accept-Encoding","gzip, deflate");
-    connection.setDoOutput(true);
-
-    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(),"UTF-8");
-    writer.write(formsubmissionJson);
-    writer.flush();
-
-    InputStreamReader reader = new InputStreamReader(connection.getInputStream(),"UTF-8");
-    int responseCode = reader.read();
-    if (responseCode == HttpServletResponse.SC_OK
-            || responseCode == HttpServletResponse.SC_CREATED) {
-        //log.info("Queue data created!");
-    }
-
-    reader.close();
-    writer.close();
-}
- 
- 
-}
-}
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sync_form_data);
+		
+		String formsubmissionJson = getIntent().getStringExtra("formdata");
+	    String URF = (getString(R.string.default_server) + URL);
+		
+		
+			System.out.println("url is" +URF);
+		
+		/* Testing to see if  we can get the json string from form in webview*/
+			
+		System.out.println("submit 56565 ======= " + formsubmissionJson);  
+		
+		btn=(Button)findViewById(R.id.button1);
+		
+		btn.setOnClickListener(this);
+		}
+		 
+		@Override
+		public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.layout.menu, menu);
+		return true;
+		}
+		 
+		@Override
+		protected void onDestroy() {
+		        super.onDestroy();
+		    }
+	
+		@Override
+		protected void onResume() {
+		        super.onResume();
+		       
+		    }
+	
+		@Override
+	    protected void onPause() {
+		        super.onPause();
+		    }
+	
+		public void onClick(View v) {
+		// TODO Auto-generated method stub
+			String formsubmissionJson = getIntent().getStringExtra("formdata");
+		new MyAsyncTask().execute(formsubmissionJson.toString());	
+		
+		 
+		}
+		 
+		private class MyAsyncTask extends AsyncTask<String, String, String>{
+			
+			@Override
+			        protected void onPreExecute() {
+			            super.onPreExecute();
+				           
+			        }
+		@Override
+		protected String doInBackground(String... args) {
+			try {
+				postingQueueData();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		// TODO Auto-generated method stub
+			return null;
+	
+		}
+		 
+		protected void onPostExecute(Double result){
+		
+		Toast.makeText(getApplicationContext(), "command sent", Toast.LENGTH_LONG).show();
+		
+		// Start ListPatient activity
+        Intent ip = new Intent(getApplicationContext(), ListPatientActivity.class);
+        startActivity(ip);
+		}
+		
+		
+		public void postingQueueData() throws Exception   {
+		 String URF = (getString(R.string.default_server) + URL);
+	     String formsubmissionJson = getIntent().getStringExtra("formdata");
+		 // URL url = new URL("http://192.168.1.3:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
+			URL url = new URL(URF);
+		    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		    String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
+		   // String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
+		    connection.setRequestProperty("Authorization", encodedAuthorization);
+		    connection.setRequestMethod(METHOD_POST);
+		    connection.setRequestProperty("Content-Type", "application/json");
+		    connection.setDoOutput(true);
+		
+		    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+		    writer.write(formsubmissionJson);
+		    writer.flush();
+		
+		    InputStreamReader reader = new InputStreamReader(connection.getInputStream(),"UTF-8");
+		    int responseCode = reader.read();
+		    if (responseCode == HttpServletResponse.SC_OK
+		            || responseCode == HttpServletResponse.SC_CREATED) {
+		        //log.info("Queue data created!");
+		    }
+		
+		    reader.close();
+		    writer.close();
+		   }
+		 
+		 
+		  }
+		}
