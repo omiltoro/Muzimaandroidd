@@ -1,17 +1,15 @@
 package com.muzima.view.sample.activities;
  
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
- 
-import org.apache.http.HttpResponse;
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL; 
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -48,23 +46,24 @@ import android.widget.Toast;
 public class SyncFormDataActivity extends Activity implements OnClickListener{
  
 	private EditText value;
+	
 	private Button btn;
-	private ProgressBar pb;
+	
 	private static final String METHOD_POST = "POST";
+	
 	private static final String URL = "/ws/rest/v1/muzima/queueData";
 
 
 
-		@Override
-		public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sync_form_data);
 		
 		String formsubmissionJson = getIntent().getStringExtra("formdata");
 	    String URF = (getString(R.string.default_server) + URL);
 		
-		
-			System.out.println("url is" +URF);
+	    System.out.println("url is" +URF);
 		
 		/* Testing to see if  we can get the json string from form in webview*/
 			
@@ -73,74 +72,76 @@ public class SyncFormDataActivity extends Activity implements OnClickListener{
 		btn=(Button)findViewById(R.id.button1);
 		
 		btn.setOnClickListener(this);
-		}
+		
+	}
 		 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.layout.menu, menu);
 		return true;
-		}
-		 
-		@Override
-		protected void onDestroy() {
-		        super.onDestroy();
-		    }
 	
-		@Override
-		protected void onResume() {
-		        super.onResume();
+	}
+		 
+	@Override
+	protected void onDestroy() {
+	   super.onDestroy();
+	
+	}
+	
+	@Override
+	protected void onResume() {
+	    super.onResume();
 		       
-		    }
+	}
 	
-		@Override
-	    protected void onPause() {
-		        super.onPause();
-		    }
+	@Override
+	protected void onPause() {
+	   super.onPause();
+	    }
 	
-		public void onClick(View v) {
-		// TODO Auto-generated method stub
-			String formsubmissionJson = getIntent().getStringExtra("formdata");
+	public void onClick(View v) {
+	// TODO Auto-generated method stub
+		String formsubmissionJson = getIntent().getStringExtra("formdata");
 		new MyAsyncTask().execute(formsubmissionJson.toString());	
-		
+	 
+	}
 		 
-		}
-		 
-		private class MyAsyncTask extends AsyncTask<String, String, String>{
+	private class MyAsyncTask extends AsyncTask<String, String, String>{
 			
-			@Override
-			        protected void onPreExecute() {
-			            super.onPreExecute();
+	@Override
+	protected void onPreExecute() {
+	   super.onPreExecute();
 				           
-			        }
-		@Override
-		protected String doInBackground(String... args) {
-			try {
+	}
+	
+	@Override
+	protected String doInBackground(String... args) {
+		try {
 				postingQueueData();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
 			}
 		// TODO Auto-generated method stub
 			return null;
-	
-		}
+	}
 		 
-		protected void onPostExecute(Double result){
+	protected void onPostExecute(Double result){
 		
-		Toast.makeText(getApplicationContext(), "Form Data has been sent to server", Toast.LENGTH_LONG).show();
+	Toast.makeText(getApplicationContext(), "Form Data has been sent to server", Toast.LENGTH_LONG).show();
 		
 		// Start ListPatient activity
-        Intent ip = new Intent(getApplicationContext(), ListPatientActivity.class);
-        startActivity(ip);
-		}
+    Intent ip = new Intent(getApplicationContext(), ListPatientActivity.class);
+       startActivity(ip);
+       
+	}
 		
 		
-		public void postingQueueData() throws Exception   {
-		 String URF = (getString(R.string.default_server) + URL);
-	     String formsubmissionJson = getIntent().getStringExtra("formdata");
-		 // URL url = new URL("http://192.168.1.3:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
-			URL url = new URL(URF);
-		    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	public void postingQueueData() throws Exception   {
+		    String formsubmissionJson = getIntent().getStringExtra("formdata");
+		    URL url = new URL("http://192.168.1.3:8081/openmrs-standalone/ws/rest/v1/muzima/queueData");
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		    String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
 		   // String encodedAuthorization = "Basic " + Base64.encodeToString("admin:test".getBytes(), Base64.NO_WRAP);
 		    connection.setRequestProperty("Authorization", encodedAuthorization);
@@ -165,4 +166,5 @@ public class SyncFormDataActivity extends Activity implements OnClickListener{
 		 
 		 
 		  }
-		}
+	
+	}
